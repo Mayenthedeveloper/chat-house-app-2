@@ -4,16 +4,23 @@ import { Link } from "react-router-dom";
 import "./Auth.scss";
 import AuthService from "../../services/authService";
 
+import { useDispatch } from "react-redux";
+import { login } from "../../store/actions/auth";
+
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ history }) => {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("john.doe@gmail.com");
   const [password, setPassword] = useState("secret");
 
   const submitForm = (e) => {
     e.preventDefault();
 
-    AuthService.login({ email, password }).then((res) => console.log(res));
+    dispatch(login({ email, password }, history));
+
+    // AuthService.login({ email, password }).then((res) => console.log(res));
     // axios
     //   .post("http://localhost:8000/login", { email, password })
     //   .then((res) => {
@@ -23,7 +30,7 @@ const Login = () => {
     //     console.log("err", err);
     //   });
 
-    console.log({ email, password });
+    // console.log({ email, password });
 
     // dispatch(login({ email, password }, history));
   };
