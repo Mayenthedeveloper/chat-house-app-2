@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import registerImage from "../../assets/images/register.png";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
