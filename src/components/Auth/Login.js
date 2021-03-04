@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import loginImage from "../../assets/images/login.png";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
+import AuthService from "../../services/authService";
 
 import axios from "axios";
 
@@ -12,14 +13,15 @@ const Login = () => {
   const submitForm = (e) => {
     e.preventDefault();
 
-    axios
-      .post("http://localhost:8000/login", { email, password })
-      .then((res) => {
-        console.log("res", res);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
+    AuthService.login({ email, password }).then((res) => console.log(res));
+    // axios
+    //   .post("http://localhost:8000/login", { email, password })
+    //   .then((res) => {
+    //     console.log("res", res);
+    //   })
+    //   .catch((err) => {
+    //     console.log("err", err);
+    //   });
 
     console.log({ email, password });
 
