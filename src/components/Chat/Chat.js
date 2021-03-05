@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Chat = () => {
   const user = useSelector((state) => state.authReducer.user);
@@ -7,7 +7,7 @@ const Chat = () => {
   return (
     <div>
       <h1>Chat Screen</h1>
-      <p>Wecome, {user.firstName}</p>
+      <p>Welcome, {user.firstName}</p>
     </div>
   );
 };
