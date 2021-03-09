@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { logout } from "../../store/actions/auth";
 import Modal from "../Modal/Modal";
-//import { updateProfile } from "../../../../store/actions/auth";
+import { updateProfile } from "../../store/actions/auth";
 import "./Navbar.scss";
 
 const Navbar = () => {
@@ -32,7 +32,7 @@ const Navbar = () => {
       formData.append(key, form[key]);
     }
 
-    // dispatch(updateProfile(formData)).then(() => setShowProfileModal(false));
+    dispatch(updateProfile(formData)).then(() => setShowProfileModal(false));
   };
 
   return (
