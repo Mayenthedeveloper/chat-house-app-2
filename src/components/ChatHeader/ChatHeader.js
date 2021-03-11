@@ -8,7 +8,6 @@ const ChatHeader = ({ chat }) => {
   const [showAddFriendModal, setShowAddFriendModal] = useState(false);
   const [showLeaveChatModal, setShowLeaveChatModal] = useState(false);
   const [showDeleteChatModal, setShowDeleteChatModal] = useState(false);
-  const [suggestions, setSuggestions] = useState([]);
 
   const leaveChat = () => {};
 
