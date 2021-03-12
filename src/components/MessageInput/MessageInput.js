@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 const MessageInput = ({ chat }) => {
   const user = useSelector((state) => state.authReducer.user);
+  const socket = useSelector((state) => state.chatReducer.socket);
 
   const [message, setMessage] = useState("");
   const [image, setImage] = useState("");
@@ -29,7 +30,7 @@ const MessageInput = ({ chat }) => {
 
     const msg = {
       type: imageUpload ? "image" : "text",
-      fromUserId: user.id,
+      fromuserId: user.id,
       toUserId: chat.Users.map((user) => user.id),
       chatId: chat.id,
       message: imageUpload ? imageUpload : message,
@@ -40,6 +41,7 @@ const MessageInput = ({ chat }) => {
     // setShowEmojiPicker(false);
 
     // send message with socket
+    socket.emit("message", msg);
   };
   return (
     <div id="input-container">
