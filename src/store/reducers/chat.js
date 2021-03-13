@@ -6,6 +6,7 @@ import {
   FRIEND_OFFLINE,
   SET_SOCKET,
   RECEIVED_MESSAGE,
+  SENDER_TYPING,
 } from "../actions/chat";
 
 const initialState = {
@@ -14,6 +15,8 @@ const initialState = {
   socket: {},
   newMessage: { chatId: null, seen: null },
   scrollBottom: 0,
+
+  senderTyping: { typing: false },
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -171,6 +174,7 @@ const chatReducer = (state = initialState, action) => {
           chats: chatsCopy,
           currentChat: currentChatCopy,
           newMessage,
+          senderTyping: { typing: false },
         };
       }
 
@@ -180,6 +184,21 @@ const chatReducer = (state = initialState, action) => {
         currentChat: currentChatCopy,
         newMessage,
         scrollBottom,
+        senderTyping: { typing: false },
+      };
+    }
+    case SENDER_TYPING: {
+      if (payload.typing) {
+        return {
+          ...state,
+          senderTyping: payload,
+          scrollBottom: state.scrollBottom + 1,
+        };
+      }
+
+      return {
+        ...state,
+        senderTyping: payload,
       };
     }
     default: {
