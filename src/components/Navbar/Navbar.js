@@ -32,6 +32,9 @@ const Navbar = () => {
       formData.append(key, form[key]);
     }
 
+    console.log("Avatar....");
+    console.log(avatar);
+
     dispatch(updateProfile(formData)).then(() => setShowProfileModal(false));
   };
 

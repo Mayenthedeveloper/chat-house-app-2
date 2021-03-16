@@ -34,7 +34,7 @@ const FriendList = () => {
   return (
     <div id="friends" className="shadow-light">
       <div id="title">
-        <h3 className="m-0">Friends</h3>
+        <h3 className="m-0">Chat List</h3>
         <button onClick={() => setShowFriendsModal(true)}>ADD</button>
       </div>
       <hr />

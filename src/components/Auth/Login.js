@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import loginImage from "../../assets/images/login.png";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
-import AuthService from "../../services/authService";
 
 import { useDispatch } from "react-redux";
 import { login } from "../../store/actions/auth";
-
-import axios from "axios";
 
 const Login = ({ history }) => {
   const dispatch = useDispatch();

@@ -331,6 +331,8 @@ const chatReducer = (state = initialState, action) => {
     }
 
     case DELETE_CURRENT_CHAT: {
+      console.log("Before");
+      console.log(state.chats);
       return {
         ...state,
         chats: state.chats.filter((chat) => chat.id !== payload),

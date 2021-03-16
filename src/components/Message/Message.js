@@ -4,7 +4,8 @@ import "./Message.scss";
 const Message = ({ user, chat, index, message }) => {
   const determineMargin = () => {
     if (index + 1 === chat.Messages.length) return;
-
+    // console.log("------");
+    // console.log(message);\
     return message.fromuserId === chat.Messages[index + 1].fromuserId
       ? "mb-5"
       : "mb-10";

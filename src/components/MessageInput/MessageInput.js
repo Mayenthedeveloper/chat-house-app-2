@@ -52,7 +52,8 @@ const MessageInput = ({ chat }) => {
 
   const sendMessage = (imageUpload) => {
     if (message.length < 1 && !imageUpload) return;
-
+    console.log("In send msg func");
+    console.log(imageUpload);
     const msg = {
       type: imageUpload ? "image" : "text",
       fromuser: user,
@@ -73,6 +74,7 @@ const MessageInput = ({ chat }) => {
     const formData = new FormData();
     formData.append("id", chat.id);
     formData.append("image", image);
+    console.log("FORMDATA");
 
     ChatService.uploadImage(formData)
       .then((image) => {
