@@ -13,10 +13,8 @@ export const login = (params, history) => (dispatch) => {
 export const register = (params, history) => (dispatch) => {
   return AuthService.register(params)
     .then((data) => {
-      //   console.log("AFTER REGISTER-----");
-      //   console.log(data);
-      //   data.user.avatar = "https://localhost:8000/male.svg";
       dispatch({ type: REGISTER, payload: data });
+      console.log();
       history.push("/");
     })
     .catch((err) => {});
